@@ -26,7 +26,7 @@ func getDirNames(rawStr string) (contest string, number string, task string) {
   rep := regexp.MustCompile(`\s+`)
   compStr := rep.Split(rawStr, -1)
   contest = compStr[0][:3]
-  number = "T" + compStr[0][3:6]
+  number = "T" + compStr[0][3:]
   nAlNum := regexp.MustCompile(`\W`)
   task = nAlNum.ReplaceAllString(strings.ToLower(strings.Join(compStr[1:], "_")), "")
   return
