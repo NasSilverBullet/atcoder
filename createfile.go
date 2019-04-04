@@ -12,7 +12,17 @@ import (
 func main() {
   str := readLinesfromStdin()
   contest, number, task := getDirNames(str)
-  fmt.Println(contest, number, task)
+  dir := contest + "/" + number + "/" + task
+  if err := os.MkdirAll(dir, 0777); err != nil {
+    fmt.Println(err)
+  }
+  os.Chdir(dir)
+  fileName := "main.go"
+  _, err := os.Stat(fileName)
+  if err != nil {
+    fmt.Println(err)
+  }
+
 }
 
 func readLinesfromStdin() string {
