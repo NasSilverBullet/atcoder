@@ -13,16 +13,28 @@ func main() {
   str := readLinesfromStdin()
   contest, number, task := getDirNames(str)
   dir := contest + "/" + number + "/" + task
-  if err := os.MkdirAll(dir, 0777); err != nil {
+  if _, err := os.Stat(dir); err != nil {
+    fmt.Printf("%v\n", err)
+    fmt.Printf("mkdir %s\n", dir)
+  }
+  if err := os.MkdirAll(dir, 0755); err != nil {
     fmt.Println(err)
   }
   os.Chdir(dir)
+  fmt.Printf("cd %s\n", dir)
   fileName := "main.go"
   _, err := os.Stat(fileName)
   if err != nil {
-    fmt.Println(err)
+    fmt.Printf("%v\n", err)
+    fmt.Printf("touch %s\n", fileName)
   }
-
+  file, err := os.OpenFile(fileName, os.O_CREATE|os.O_EXCL, 0755)
+  if err != nil {
+    fmt.Printf("%v\n", err)
+    return
+  }
+  defer file.Close()
+  fmt.Printf("%s/%s is created!\n", dir, fileName)
 }
 
 func readLinesfromStdin() string {
