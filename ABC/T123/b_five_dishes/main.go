@@ -2,26 +2,19 @@ package main
 
 import (
   "fmt"
-  "math"
 )
 
 func main() {
-  A := make([]int, 5)
+  var p, sum, maxSurplus int
   for i := 0; i < 5; i++ {
-    fmt.Scan(&A[i])
-  }
-  var (
-    sum int
-    min = math.MaxInt64
-  )
-  for _, v := range A {
-    sum += v
-    if mod := v % 10; mod != 0 {
-      if mod < min {
-        min = mod
+    fmt.Scan(&p)
+    sum += p
+    if surplus := 10 - p%10; surplus != 10 {
+      if maxSurplus < surplus {
+        maxSurplus = surplus
       }
-      sum += (10 - mod)
+      sum += surplus
     }
   }
-  fmt.Println(sum - (10 - min))
+  fmt.Println(sum - maxSurplus)
 }
