@@ -13,22 +13,16 @@ func main() {
     shops[i] = make([]int, 2)
     fmt.Scan(&shops[i][0], &shops[i][1])
   }
-  sort.Slice(shops, func(i, j int) bool {
-    return shops[i][0] < shops[j][0]
-  })
-  finished := false
-  price := 0
-  for _, v := range shops {
-    get := v[1]
-    if get > m {
-      get = m
-      finished = true
+  sort.Slice(shops, func(i, j int) bool { return shops[i][0] < shops[j][0] })
+  var sum, take int
+  for i := 0; m > 0; i++ {
+    if shops[i][1] > m {
+      take = m
+    } else {
+      take = shops[i][1]
     }
-    price += get * v[0]
-    m -= get
-    if finished {
-      break
-    }
+    sum += shops[i][0] * take
+    m -= take
   }
-  fmt.Println(price)
+  fmt.Println(sum)
 }
