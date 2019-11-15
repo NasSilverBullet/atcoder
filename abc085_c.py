@@ -17,3 +17,7 @@ def get_pattern(n, y):
 n, y = [int(x) for x in input().split()]
 a, b, c = get_pattern(n, y)
 print(a, b, c)
+
+# Other
+# https://atcoder.jp/contests/abc085/submissions/5565312
+# TODO 理解できなかったので今度読む
