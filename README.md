@@ -1,4 +1,3 @@
 # atcoder
 
-
-challenge atcoder by golang
+challenge atcoder
