@@ -1,4 +1,4 @@
-# # Me
+# Me
 def count(a, b, c, x):
     A = 10
     B = 2
