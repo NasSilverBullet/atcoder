@@ -19,7 +19,7 @@ print([fizzbuzz(n) for n in range(1, LIMIT + 1)])
 
 Refs: <https://kenkoooo.com/atcoder/#/table/nas3>
 
-## Reffer
+## Refer
 
 Refs: <https://qiita.com/Kentaro_okumura/items/a6917572756a2e3c0da9>
 
