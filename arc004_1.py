@@ -1,5 +1,6 @@
 import math
 
+
 # 単なる全探索の鬼
 # Me
 def solve(p):
